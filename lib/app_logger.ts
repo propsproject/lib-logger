@@ -1,8 +1,8 @@
 import request from 'request-promise-native';
-import _ from 'lodash';
-
 import logger from './logger';
 import config from './config';
+
+const _ = require('lodash');
 
 let instance = 'none';
 
@@ -73,7 +73,6 @@ class AppLogger {
     const res = AppLogger.loggerCast(_resSource, 'obj');
     logger.error({ app: config.app, env: config.env, mode: config.run_mode, topic, subTopic, applevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
   }
-
 
   static log(msg, topic, owner, applevel, userId = 0, roomId = 0, extraObj = false, err = null, url = '') {
     let ucTopic = topic.toUpperCase();

@@ -1,10 +1,10 @@
-import bunyan from 'bunyan';
+import * as bunyan from 'bunyan';
 import bunyanFormat from 'bunyan-format';
 import config from './config';
 
 const bugsnag = require('bugsnag');
 
-if (bugsnag.settings.bugsnag_enabled === true) {
+if (config.settings.bugsnag_enabled === true) {
   bugsnag.register(config.settings.bugsnag_api, {releaseStage: config.settings.bugsnag_release_stage});
 }
 
@@ -19,6 +19,7 @@ if (!sharedLogger) {
   } catch (e) {
     loggerName = 'micro-service';
   }
+
   sharedLogger = bunyan.createLogger({
     name: loggerName,
     streams: [

@@ -1,6 +1,6 @@
 {
-  "name": "@propsproject/lib-logger",
-  "version": "1.0.9",
+  "name": "props-lib-logger",
+  "version": "1.0.10",
   "description": "Module handling logging",
   "main": "dist/index.js",
   "scripts": {
