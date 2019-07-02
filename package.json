@@ -1,0 +1,41 @@
+{
+  "name": "@propsproject/lib-logger",
+  "version": "1.0.9",
+  "description": "Module handling logging",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "mocha $NODE_DEBUG_OPTION $(find lib -name '*.test.js') --compilers js:babel-register",
+    "transpile": "tsc",
+    "build": "npm run transpile && npm run doc",
+    "prepublish": "npm run build",
+    "check-coverage": "nyc check-coverage --statement 100 --branches 100 --functions 100 --lines 100",
+    "commit": "git-cz",
+    "cover": "nyc npm test",
+    "doc": "apidoc -i lib/ -o public/doc/",
+    "watch:test": "npm test -- -w"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.10",
+    "@younow/lib-env": "^2.0.1",
+    "bugsnag": "^1.9.1",
+    "bunyan": "^1.8.5",
+    "bunyan-format": "^0.2.1",
+    "lodash": "^4.17.4",
+    "request": "^2.79.0",
+    "request-promise-native": "^1.0.3"
+  },
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "mocha": "^3.2.0",
+    "nyc": "^10.0.0"
+  },
+  "author": "Younow",
+  "license": "ISC"
+}
