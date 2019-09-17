@@ -7,12 +7,14 @@
     "allowJs": true,
     "noImplicitAny": false,
     "moduleResolution": "node",
+    "declaration": false,
     "types": [
-      "node",
+      "node"
     ]
   },
   "include": [
-    "lib/**/*.ts"
+    "lib/**/*.ts",
+    "test.ts"
   ],
   "exclude": [
     "node_modules",

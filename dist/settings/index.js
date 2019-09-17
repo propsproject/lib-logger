@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const defaults = require("./settings.defaults");
+const test = require("./settings.test");
+const development = require("./settings.development");
+const playground = require("./settings.playground");
+const staging = require("./settings.staging");
+const production = require("./settings.production");
+const loadtest = require("./settings.loadtest");
+const stagingK8s = require("./settings.staging_k8s");
+const productionK8s = require("./settings.production_k8s");
+const settings = {};
+exports.default = settings;
+settings.defaults = defaults;
+settings.test = test;
+settings.development = development;
+settings.playground = playground;
+settings.staging = staging;
+settings.production = production;
+settings.loadtest = loadtest;
+settings.staging_k8s = stagingK8s;
+settings.production_k8s = productionK8s;
+//# sourceMappingURL=index.js.map

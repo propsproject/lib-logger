@@ -1,0 +1,1 @@
+{"version":3,"file":"settings.production_k8s.js","sourceRoot":"","sources":["../../lib/settings/settings.production_k8s.js"],"names":[],"mappings":";;AAAA,kBAAe,CAAC,GAAG,EAAE,CAAC,CAAC;IACrB,MAAM,EAAE;QACN,GAAG,EAAE,KAAK;KACX;IACD,qBAAqB,EAAE,gBAAgB;CACxC,CAAC,CAAC,CAAC"}

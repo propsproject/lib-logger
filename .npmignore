@@ -1,4 +1,6 @@
 lib
 node_modules
-.babelrc
-.eslintrc.js
+.npmrc
+.gitignore
+tsconfig.json
+tslint.json

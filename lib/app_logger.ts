@@ -16,14 +16,14 @@ class AppLogger {
     };
 
     return request(options)
-        .then((res) => {
-          instance = res;
-          return true;
-        })
-        .catch((error) => {
-          console.log(`failed to get instance-id:${error}`);
-          return true;
-        });
+      .then((res) => {
+        instance = res;
+        return true;
+      })
+      .catch((error) => {
+        console.log(`failed to get instance-id:${error}`);
+        return true;
+      });
   }
 
   static loggerCast(val, type) {
@@ -43,11 +43,11 @@ class AppLogger {
     }
   }
 
-  static info(_msg, _topic, _subTopic, _applevel, _userId = 0, _roomId = 0, _extraObj = {}, _err = null, _req = null, _url = '', _resSource = null) {
+  static info(_msg: string, _topic: string, _subTopic: string, _appLevel: number, _userId: number = 0, _roomId: number = 0, _extraObj: any = {}, _err: any = null, _req: any = null, _url: string = '', _resSource: object = null) {
     const msg = AppLogger.loggerCast(_msg, 'str');
     const topic = AppLogger.loggerCast(_topic, 'str');
     const subTopic = AppLogger.loggerCast(_subTopic, 'str');
-    const applevel = AppLogger.loggerCast(_applevel, 'int');
+    const appLevel = AppLogger.loggerCast(_appLevel, 'int');
     const userId = AppLogger.loggerCast(_userId, 'str');
     const roomId = AppLogger.loggerCast(_roomId, 'str');
     const extraObj = AppLogger.loggerCast(_extraObj, 'obj');
@@ -56,14 +56,14 @@ class AppLogger {
     const url = AppLogger.loggerCast(_url, 'str');
     const res = AppLogger.loggerCast(_resSource, 'obj');
 
-    logger.info({ app: config.app, env: config.env, mode: config.run_mode, topic, subTopic, applevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
+    logger.info({ app: config.app, env: config.env, mode: config.run_mode, topic, subTopic, appLevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
   }
 
-  static error(_msg, _topic, _subTopic, _applevel, _userId = 0, _roomId = 0, _extraObj = {}, _err = null, _req = null, _url = '', _resSource = null) {
+  static error(_msg: string, _topic: string, _subTopic: string, _appLevel: number, _userId: number = 0, _roomId: number = 0, _extraObj: any = {}, _err: any = null, _req: any = null, _url: string = '', _resSource: object = null) {
     const msg = AppLogger.loggerCast(_msg, 'str');
     const topic = AppLogger.loggerCast(_topic, 'str');
     const subTopic = AppLogger.loggerCast(_subTopic, 'str');
-    const applevel = AppLogger.loggerCast(_applevel, 'int');
+    const appLevel = AppLogger.loggerCast(_appLevel, 'int');
     const userId = AppLogger.loggerCast(_userId, 'str');
     const roomId = AppLogger.loggerCast(_roomId, 'str');
     const extraObj = AppLogger.loggerCast(_extraObj, 'obj');
@@ -71,10 +71,10 @@ class AppLogger {
     const req = AppLogger.loggerCast(_req, 'obj');
     const url = AppLogger.loggerCast(_url, 'str');
     const res = AppLogger.loggerCast(_resSource, 'obj');
-    logger.error({ app: config.app, env: config.env, mode: config.run_mode, topic, subTopic, applevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
+    logger.error({ app: config.app, env: config.env, mode: config.run_mode, topic, subTopic, appLevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
   }
 
-  static log(msg, topic, owner, applevel, userId = 0, roomId = 0, extraObj = false, err = null, url = '') {
+  static log(msg: string, topic: string, owner: string, appLevel: number, userId: number = 0, roomId: number = 0, extraObj: any = false, err: any = null, url: string = '') {
     let ucTopic = topic.toUpperCase();
     let subTopic = '';
     const extraObject = extraObj === false ? {} : extraObj;
@@ -84,9 +84,9 @@ class AppLogger {
       subTopic = topicSplit[1];
     }
     if (err != null) {
-      AppLogger.error(msg, ucTopic, subTopic, applevel, userId, roomId, extraObject, err, null, url);
+      AppLogger.error(msg, ucTopic, subTopic, appLevel, userId, roomId, extraObject, err, null, url);
     } else {
-      AppLogger.info(msg, ucTopic, subTopic, applevel, userId, roomId, extraObject, err, null, url);
+      AppLogger.info(msg, ucTopic, subTopic, appLevel, userId, roomId, extraObject, err, null, url);
     }
   }
 }
