@@ -66,7 +66,7 @@ class AppLogger {
         const res = AppLogger.loggerCast(_resSource, 'obj');
         logger_1.default.error({ app: config_1.default.app, env: config_1.default.env, mode: config_1.default.run_mode, topic, subTopic, appLevel, userId, roomId, extraObj, err, instance, memory: process.memoryUsage(), req, url, res }, msg);
     }
-    static log(msg, topic, owner, appLevel, userId = 0, roomId = 0, extraObj = false, err = null, url = '') {
+    static log(msg, topic, owner, appLevel = 0, userId = 0, roomId = 0, extraObj = false, err = null, url = '') {
         let ucTopic = topic.toUpperCase();
         let subTopic = '';
         const extraObject = extraObj === false ? {} : extraObj;
